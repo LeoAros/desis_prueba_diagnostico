@@ -1,12 +1,16 @@
 *REQUISITOS:
-- Debe tener un servidor local (Por ejemplo, Apache) instalado para poder ejecutar el programa.
+- Debe tener un servidor local instalado (Por ejemplo, Apache) para poder ejecutar el programa.
 - Debe tener instalado PostgreSQL.
 - Se debe habilitar la extensión "extension=pgsql" en php.ini de Apache (XAMPP).
 
 *PASOS:
-- Iniciar servidor Apache en xampp.
+- Iniciar servidor Apache en XAMPP.
 - Iniciar base de datos de PostgreSQL. 
-- Clonar proyecto en htdocs de xampp.
+- Clonar proyecto en htdocs de XAMPP.
 - Crear base de datos en PostgreSQL con nombre "desis_db", usar "Restore" y luego importar el archivo SQL "sql/desis_db.sql" que se encuentra en el proyecto, usando "postgres" como Role name.
 - Abrir navegador e ir a la ruta "http://localhost/desis_prueba_diagnostico/".
 - Usar formulario de votación.
+
+*VERSION:
+- PHP Version 8.2.12
+- PostgreSQL Version 16.3
