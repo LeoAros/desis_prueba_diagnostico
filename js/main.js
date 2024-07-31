@@ -38,15 +38,16 @@ document.addEventListener("DOMContentLoaded", function (event) {
     form.addEventListener('submit', async function (e) {
         e.preventDefault()
         let sw = false
-        console.log('votando..');
+
+        //Se valida el formulario
         sw = await validateForm()
         const formData = new FormData(form)
 
         if (sw) {
-            //axios para guardar el voto
+            //Llamada axios para guardar el voto
             axios.post('php/insert_vote.php', formData)
                 .then(response => {
-                    //LIMPIAR FORM
+                    //Se limpia el formulario
                     form.reset()
                     selectCommune.innerHTML = ""
                     alert(response.data)
@@ -87,26 +88,27 @@ document.addEventListener("DOMContentLoaded", function (event) {
 const validateForm = async() => {
     let sw
 
+    //Se definen expresiones regulares para alias y email
     const aliasRegex = /(?=.*[a-zA-Z])(?=.*\d)/;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    //Definir values
+    //Se definen los valores de los campos del formulario
     const name = document.getElementById('name').value
     const alias = document.getElementById('alias').value
     let rut = document.getElementById('rut')
-    //let rut = inputRut.value
     const email = document.getElementById('email').value
     const region = document.getElementById('region').value
     const commune = document.getElementById('commune').value
     const candidate = document.getElementById('candidate').value
     const checkboxes = document.querySelectorAll('input[type="checkbox"]')
 
-    //Validate name
+    //Se valida en nombre
     if (name.trim() === '') {
         sw = false
         alert('El nombre no debe quedar en blanco')
     }
-    //Validate alias
+
+    //Se valida el alias
     if (alias.trim() === '') {
         sw = false
         alert('El alias no debe quedar en blanco')
@@ -120,7 +122,8 @@ const validateForm = async() => {
             alert('El alias debe ser mayor a 5 caracteres')
         }
     }
-    //Validate rut
+
+    //Se valida el rut
     rut.value = rut.value.replace(/\./g, '');
     rut.value = rut.value.trim()
 
@@ -131,7 +134,7 @@ const validateForm = async() => {
         sw = await validateRut(rut.value)
     }
 
-    //Validate email
+    //Se valida el email
     if (email.trim() === '') {
         sw = false
         alert('El email no debe quedar en blanco')
@@ -141,22 +144,26 @@ const validateForm = async() => {
             alert('El formato de email es inválido')
         }
     }
-    //Validate region
+
+    //Se valida la región
     if (region.trim() === '') {
         sw = false
         alert('La región no debe quedar en blanco')
     }
-    //Validate commune
+
+    //Se valida la comuna
     if (commune.trim() === '') {
         sw = false
         alert('La comuna no debe quedar en blanco')
     }
-    //Validate candidate
+
+    //Se valida el candidato
     if (candidate.trim() === '') {
         sw = false
         alert('El candidato no debe quedar en blanco')
     }
-    //Validate socials
+
+    //Se valida el socials
     let checkedCount = 0;
     checkboxes.forEach(function (checkbox) {
         if (checkbox.checked) {
@@ -176,6 +183,7 @@ const validateRut = async (rut_original) => {
     let sw
     let rut = rut_original
 
+    //Se valida la longitud del RUT
     if (rut.length < 9) {
         alert('Error en la longitud del RUT')
         return false;
@@ -183,11 +191,11 @@ const validateRut = async (rut_original) => {
 
     rut = rut.replace(/[^0-9Kk]/g, '').toUpperCase();
 
-    // Extraer dígito verificador y número
+    //Se extrae el dígito verificador y número
     const dv = rut.charAt(rut.length - 1);
     const rutNumerico = rut.substring(0, rut.length - 1);
 
-    // Calcular dígito verificador
+    //Se calcula el dígito verificador
     let suma = 0;
     let multiplo = 2;
 
@@ -204,6 +212,7 @@ const validateRut = async (rut_original) => {
     if (sw == false) {
         alert('RUT incorrecto')
     }else{
+        //Se hace una llamada axios para verificar el rut duplicado
         await axios.get('php/check_duplicated_rut.php',{params:{rut:rut_original}})
             .then(response => {
                 if(response.data == 'duplicated'){
