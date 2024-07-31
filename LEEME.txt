@@ -1,0 +1,12 @@
+*REQUISITOS:
+- Debe tener un servidor local (Por ejemplo, Apache) instalado para poder ejecutar el programa.
+- Debe tener instalado PostgreSQL.
+- Se debe habilitar la extensión "extension=pgsql" en php.ini de Apache (XAMPP).
+
+*PASOS:
+- Iniciar servidor Apache en xampp.
+- Iniciar base de datos de PostgreSQL. 
+- Clonar proyecto en carpeta "desis" en htdocs de xampp.
+- Crear base de datos en PostgreSQL con nombre "desis_db", e importar el archivo SQL "desis_db.sql" que se encuentra en el proyecto usando "postgres" como Role name. (Restore en pgAdmin4)
+- Abrir navegador e ir a la ruta "http://localhost/desis/".
+- Usar formulario de votación.

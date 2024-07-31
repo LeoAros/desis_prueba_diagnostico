@@ -1,0 +1,29 @@
+.row {
+    display: flex;
+    margin: -10px;
+}
+
+.col-6 {
+    flex: 1;
+    padding: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"], input[type="email"], select {
+    width: 60%;
+    height: 100%;
+    padding: 0;
+}
+
+
+.form{
+    width: 600px;
+}
+
+.mt{
+    margin-top: 20px;
+}

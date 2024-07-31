@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desis</title>
+    <!-- Se incluye el CDN de axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="css/app.css">
+
+</head>
+
+<body>
+    <h3>FORMULARIO DE VOTACIÓN:</h3>
+
+    <form class="form" id="formVote">
+        <div class="row">
+            <div class="col-6">
+                <label for="name">Nombre y Apellido</label>
+            </div>
+            <div class="col-6">
+                <input type="text" name="name" id="name" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <label for="alias">Alias</label>
+            </div>
+            <div class="col-6">
+                <input type="text" name="alias" id="alias" required minlength="6">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <label for="rut">RUT</label>
+            </div>
+            <div class="col-6">
+                <input type="text" name="rut" id="rut" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <label for="email">Email</label>
+            </div>
+            <div class="col-6">
+                <input type="email" name="email" id="email" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <label for="region">Región</label>
+            </div>
+            <div class="col-6">
+                <select name="region" id="region" required>
+                    <option value=""></option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <label for="commune">Comuna</label>
+            </div>
+            <div class="col-6">
+                <select name="commune" id="commune" required>
+                    <option value=""></option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <label for="candidate">Candidato</label>
+            </div>
+            <div class="col-6">
+                <select name="candidate" id="candidate" required>
+                    <option value=""></option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <label>Como se enteró de Nosotros</label>
+            </div>
+            <div class="col-6">
+                <input type="checkbox" name="check_web">Web
+                <input type="checkbox" name="check_tv">TV
+                <input type="checkbox" name="check_rrss">Redes sociales
+                <input type="checkbox" name="check_friend">Amigo
+            </div>
+        </div>
+        <button class="mt" type="submit">Votar</button>
+    </form>
+</body>
+
+<footer>
+    <script src="js/main.js"></script>
+</footer>
+
+</html>
