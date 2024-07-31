@@ -6,7 +6,7 @@
 *PASOS:
 - Iniciar servidor Apache en xampp.
 - Iniciar base de datos de PostgreSQL. 
-- Clonar proyecto en carpeta "desis" en htdocs de xampp.
-- Crear base de datos en PostgreSQL con nombre "desis_db", e importar el archivo SQL "desis_db.sql" que se encuentra en el proyecto usando "postgres" como Role name. (Restore en pgAdmin4)
-- Abrir navegador e ir a la ruta "http://localhost/desis/".
+- Clonar proyecto en htdocs de xampp.
+- Crear base de datos en PostgreSQL con nombre "desis_db", e importar el archivo SQL "sql/desis_db.sql" que se encuentra en el proyecto usando "postgres" como Role name. (Restore en pgAdmin4)
+- Abrir navegador e ir a la ruta "http://localhost/desis_prueba_diagnostico/".
 - Usar formulario de votación.
